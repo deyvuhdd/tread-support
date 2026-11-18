@@ -2,5 +2,5 @@
 <script>
 const names=["01-today.png","03-activity.png","04-run-detail.png","05-run-dynamics.png","06-closet.png","07-fitness.png"];
 (async()=>{const files=[];for(const n of names){const b=await (await fetch("screenshots/"+n)).arrayBuffer();files.push({name:n,buf:b});}
-window.opener.postMessage({treadShots:files},"https://appstoreconnect.apple.com");document.getElementById("s").textContent="sent";})();
+(window.opener||window.parent).postMessage({treadShots:files},"https://appstoreconnect.apple.com");document.getElementById("s").textContent="sent";})();
 </script>
